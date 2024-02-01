@@ -1,5 +1,5 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/QKbbkE6z)
-## Your Name: 
+## Your Name: Kimberlynn Sundblom
 
 
 # CIDM 3312 Lab 3: Entity Framework Core 1
@@ -53,7 +53,14 @@ namespace lab3 // You can use any namespace you like. Remember to add the using 
 
 How do you access the database? How do you add an object to the database? How do you save the changes? Think about these questions to complete this task.
 
-Open the database in **DB Browser for SQLite**. Click Browse Data. Do you see your mad scientist entry? Run your program again. What happens in the database?
+    --- using ( var db = new AppDbContext()) // Access a database
+    --- db.Add(); // Adds object to the database
+    --- db.SaveChanges(); // Saves changes to the database
+
+Open the database in **DB Browser for SQLite**. Click Browse Data. Do you see your mad scientist entry? Run your program again. What happens in the database? 
+
+    ---yes
+    ---It will duplicate the entry becuase it is rerunning the code without checking if the database has already been created. Using an if statement can combat this--since the add and save statements are included within the EnsureCreated() if statement, it prevents the the entry from duplicating.
 
 ## Task 4: Finishing Up
 1. Save your program and run it. At the terminal prompt, type `dotnet run`
